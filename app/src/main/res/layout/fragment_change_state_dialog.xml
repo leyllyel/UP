@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/PrimaryColor"
+    app:cardCornerRadius="12dp"
+    app:contentPadding="4dp"
+    tools:context=".fragment_change_state_dialog">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/sort_by"
+        android:textColor="@color/white"
+        android:textAppearance="@style/Subtitle2" />
+
+        <RadioGroup
+            android:id="@+id/ChangeStateGroup"
+            android:background="@drawable/sort_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="20dp">
+            <RadioButton
+                android:id="@+id/NameCheck"
+                style="@style/RadioButtonStyle"
+                android:textAppearance="@style/Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_marginTop="16dp"/>
+            <RadioButton
+                android:id="@+id/NumberCheck"
+                style="@style/RadioButtonStyle"
+                android:textAppearance="@style/Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number" />
+        </RadioGroup>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
