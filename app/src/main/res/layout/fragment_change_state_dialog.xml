@@ -8,7 +8,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     app:cardBackgroundColor="@color/PrimaryColor"
     app:cardCornerRadius="12dp"
     app:contentPadding="4dp"
-    tools:context=".fragment_change_state_dialog">
+    tools:context=".ui.screens.fragment_change_state_dialog">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

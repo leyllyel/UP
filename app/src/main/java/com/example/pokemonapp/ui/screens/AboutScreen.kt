@@ -1,4 +1,4 @@
-package com.example.pokemonapp.Screen
+package com.example.pokemonapp.ui.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,11 +12,6 @@ import com.example.pokemonapp.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AboutScreen.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AboutScreen : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -29,7 +24,6 @@ class AboutScreen : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +31,6 @@ class AboutScreen : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about_screen, container, false)
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of

@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import com.example.pokemonapp.Screen.ScreenActivity
+import com.example.pokemonapp.ui.screens.ScreenActivity
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
