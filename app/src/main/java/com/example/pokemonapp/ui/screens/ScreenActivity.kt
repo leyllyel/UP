@@ -7,19 +7,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.pokemonapp.R
+import com.example.pokemonapp.databinding.FragmentMainScreenBinding
+import com.example.pokemonapp.ui.adapters.PokemonAdapter
 import com.example.pokemonapp.ui.models.MainScreenViewModel
 import kotlinx.coroutines.launch
 
-class ScreenActivity : Fragment(R.layout.activity_screen) {
-    private fun mainScreenViewBinding(): Fragment? = null
+class ScreenActivity : Fragment(R.layout.fragment_main_screen) {
+    private var mainScreenViewBinding: FragmentMainScreenBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel  by viewModels<MainScreenViewModel>()
-        val button = view.findViewById<ImageButton>(R.id.ChangeMode)
-        button.setOnClickListener{
-            fragment_change_state_dialog().show(childFragmentManager, "ChangeState")
-        }
+        mainScreenViewBinding = FragmentMainScreenBinding.bind(view)
+        val viewModel: MainScreenViewModel by viewModels{MainScreenViewModel.Factory}
+        viewModel.getPokemons()
         lifecycleScope.launch {
             viewModel.stateMainScreen.collect{
                 if(it.isNumberSorted) {
@@ -28,8 +28,17 @@ class ScreenActivity : Fragment(R.layout.activity_screen) {
                 if(it.isNameSorted){
                     setSortByName(view)
                 }
+                if (it.pokemonList.isNotEmpty()){
+                    val adapter  = PokemonAdapter(it.pokemonList)
+                    mainScreenViewBinding?.PokemonList?.adapter = adapter
+                }
             }
         }
+        val dialog = fragment_change_state_dialog()
+        mainScreenViewBinding?.ChangeMode?.setOnClickListener {
+            dialog.show(childFragmentManager, "StateChange")
+        }
+
     }
 
     private fun setSortByNumber(view: View) {
